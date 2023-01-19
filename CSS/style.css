@@ -1,0 +1,164 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
+
+body{
+    /* position: relative; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    background: #acbaca;
+}
+
+.container{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    background: #c9d5e0;
+    border-radius: 50px;
+    box-shadow: 30px 30px 30px -10px rgba(0,0,0,0.25),
+    inset 15px 15px 10px rgba(255,255,255,0.75),
+    -15px -15px 35px rgba(255,255,255,0.55),
+    inset -1px -1px 10px rgba(0,0,0,0.2);
+}
+
+.container::before{
+    position: absolute;
+    inset: 20px;
+    content: "";
+    background: linear-gradient(#FF6D28,#ffff6a);
+    border-radius: 50%;
+    animation: animate2 1.5s linear infinite;
+}
+
+.container::after{
+    content: "";
+    position: absolute;
+    inset: 25px;
+    background: #c9d5e0;
+    border-radius: 50%;
+}
+
+@keyframes animate2{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.clock{
+    position: absolute;
+    inset: 35px;
+    background: #152b4a;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px #152b4a,
+    inset 5px 5px 5px rgba(255,255,255,0.55),
+    -6px -6px 10px rgba(255,255,255,1);
+    z-index: 10;
+}
+
+
+.numbers span {
+    position: absolute;
+    color: white;
+    inset: 5px;
+    font-size: 1.25rem;
+    text-align: center;
+    transform: rotate(calc(90deg * var(--i)));
+}
+
+.numbers span{
+    display: inline-block;
+    /* position: absolute; */
+    /* border: 1px solid red; */
+    transform: rotate(calc(-90deg * var(--i)));
+}
+.clock:before{
+    position: absolute;
+    content:"";
+    inset: 35px;
+    background: linear-gradient(#2196f3, #e91e63);
+    border-radius: 50%;
+    animation: animate 1.5s linear infinite;
+}
+
+
+.clock:after{
+    position:absolute;
+    inset: 39px;
+    content: "";
+    background: #152b4a;
+    border-radius: 50%;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.hands{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    z-index:15;
+}
+
+.hands span{
+    position: absolute;
+    width: 3px;
+    height: 50%;
+    background: white;
+    transform-origin: bottom;
+}
+
+.hr span{
+    width: 3px;
+    transform: scaleY(0.3);
+    box-shadow: -2px 0 0 rgba(255,255,255,1);
+}
+.min span{
+    width: 1.5px;
+    transform: scaleY(0.55);
+    box-shadow: -1.5px 0 0 rgba(255,255,255,1);
+}
+.sec span{
+    width: 2px;
+    transform: scaleY(0.45);
+    background: #e91e63;
+    box-shadow: 0 40px 0 #e91e63;
+}
+
+.dot{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #e91e63;
+    border-radius: 50%;
+    z-index: 20;
+    align-self: center;
+    box-shadow: 0 0 0 1px #e91e63,
+    0 0 0 3px #fff,
+    0 0 5px 5px rgba(0, 0, 0, 0.15);
+    z-index: 25;
+}
+
+footer {
+    position: absolute;
+    color: black;
+    font-family: sans-serif;
+    align-self:flex-end;
+    bottom: -50%;
+    left: 20%;
+}
+
